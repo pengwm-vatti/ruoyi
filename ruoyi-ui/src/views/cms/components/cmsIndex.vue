@@ -13,14 +13,14 @@
 
             </div>
 
-<!--            <div ref="scrollBoardContainer">
-              <dv-scroll-board :config="l2Config"  @mouseover="mouseover" class="left-2-2"></dv-scroll-board>
-              <div ref="hoverTooltip" class="hover-tooltip">
-                &lt;!&ndash; 显示悬浮的单元格数据 &ndash;&gt;
-                <p>{{ hoverData }}</p>
-              </div>
-            </div>-->
-          <div @mousemove="handleMouseLeave">
+            <!--            <div ref="scrollBoardContainer">
+                          <dv-scroll-board :config="l2Config"  @mouseover="mouseover" class="left-2-2"></dv-scroll-board>
+                          <div ref="hoverTooltip" class="hover-tooltip">
+                            &lt;!&ndash; 显示悬浮的单元格数据 &ndash;&gt;
+                            <p>{{ hoverData }}</p>
+                          </div>
+                        </div>-->
+            <div @mousemove="handleMouseLeave">
               <dv-scroll-board :config="l2Config" @mouseover="mouseover" class="left-2-2"></dv-scroll-board>
               <el-popover
                 placement="bottom"
@@ -45,11 +45,11 @@
           </dv-border-box-12>
         </div>
         <div class="mid">
-<!--          <dv-flyline-chart-enhanced-->
-<!--            :config="m1Config"-->
-<!--            style=""-->
-<!--            class="mid-1"-->
-<!--          />-->
+          <!--          <dv-flyline-chart-enhanced-->
+          <!--            :config="m1Config"-->
+          <!--            style=""-->
+          <!--            class="mid-1"-->
+          <!--          />-->
           <dv-border-box-12 class="mid-map">
             <MapContainer />
           </dv-border-box-12>
@@ -97,12 +97,12 @@
                 <el-button type="primary" @click="detailSale">详细销售情况</el-button>
               </div>
             </div>
-              <Echart
-                :options="r3Config"
-                height="500px"
-                width="430px"
+            <Echart
+              :options="r3Config"
+              height="500px"
+              width="430px"
 
-              ></Echart>
+            ></Echart>
 
 
           </dv-border-box-12>
@@ -384,104 +384,104 @@ export default {
         //backgroundColor: "#021032",
 
         tooltip: {
-        trigger: "axis",
-        backgroundColor: "rgba(9,40,84,0.8)",
-        borderColor: "rgba(9,40,84,0.8)",
-        textStyle: {
-        fontSize: 16,
-          color: "#fff",
-      },
-      axisPointer: {
-        type: "shadow",
-      },
-      formatter: function (params) {
-        return (
-          params[0].name +
-          "&nbsp;&nbsp;&nbsp;&nbsp;<span style='font-weight:bold;'>" +
-          params[0].value +
-          "</span>"
-        );
-      },
-    },
-    grid: {
-      left: "10%",
-        right: "0%",
-        top: "2%",
-        bottom: "5%", // 特殊
-        containLabel: true,
-    },
-    xAxis: [
-      {
-        type: "value",
-        show: false,
-      },
-    ],
-      yAxis: [
-      {
-        type: "category",
-        splitLine: {
-          show: false,
-        },
-        axisLine: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        inverse: true,
-        data: information.area,
-        axisLabel: {
-          color: "#fff",
-         // margin: 10,
-          formatter: (name, index) => {
-            const id = index + 1;
-            if (id < 4) {
-              return name;
-            } else {
-              return name;
-            }
+          trigger: "axis",
+          backgroundColor: "rgba(9,40,84,0.8)",
+          borderColor: "rgba(9,40,84,0.8)",
+          textStyle: {
+            fontSize: 16,
+            color: "#fff",
           },
-
-        },
-      },
-      {
-        inverse: true,
-        axisTick: "none",
-        axisLine: "none",
-        show: true,
-        axisLabel: {
-          color: "#fff",
-          fontSize: 16,
-          margin: 10,
-          formatter: function (value) {
-            return value;
+          axisPointer: {
+            type: "shadow",
+          },
+          formatter: function (params) {
+            return (
+              params[0].name +
+              "&nbsp;&nbsp;&nbsp;&nbsp;<span style='font-weight:bold;'>" +
+              params[0].value +
+              "</span>"
+            );
           },
         },
-        data: information.dataArray,
-      },
-    ],
-      series: [
-      {
-        type: "bar",
-        barWidth: 10, // 柱子宽度
-        MaxSize: 0,
-        showBackground: true,
-        backgroundStyle: {
-          color: "rgb(10, 51, 126)",
-          borderRadius: 5, //设置背景的圆角
+        grid: {
+          left: "10%",
+          right: "0%",
+          top: "2%",
+          bottom: "5%", // 特殊
+          containLabel: true,
         },
-        data: information.dataArray.map((item) => {
-          return {
-            value: item,
-            itemStyle: {
-              borderRadius: 5,
-              color: information.color,
+        xAxis: [
+          {
+            type: "value",
+            show: false,
+          },
+        ],
+        yAxis: [
+          {
+            type: "category",
+            splitLine: {
+              show: false,
             },
-          };
-        }),
+            axisLine: {
+              show: false,
+            },
+            axisTick: {
+              show: false,
+            },
+            inverse: true,
+            data: information.area,
+            axisLabel: {
+              color: "#fff",
+              // margin: 10,
+              formatter: (name, index) => {
+                const id = index + 1;
+                if (id < 4) {
+                  return name;
+                } else {
+                  return name;
+                }
+              },
+
+            },
+          },
+          {
+            inverse: true,
+            axisTick: "none",
+            axisLine: "none",
+            show: true,
+            axisLabel: {
+              color: "#fff",
+              fontSize: 16,
+              margin: 10,
+              formatter: function (value) {
+                return value;
+              },
+            },
+            data: information.dataArray,
+          },
+        ],
+        series: [
+          {
+            type: "bar",
+            barWidth: 10, // 柱子宽度
+            MaxSize: 0,
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgb(10, 51, 126)",
+              borderRadius: 5, //设置背景的圆角
+            },
+            data: information.dataArray.map((item) => {
+              return {
+                value: item,
+                itemStyle: {
+                  borderRadius: 5,
+                  color: information.color,
+                },
+              };
+            }),
+          },
+        ],
       },
-    ],
-  },
 
     };
   },
@@ -512,7 +512,7 @@ export default {
 
     mouseover(event){
       //console.log(event)
-     this.visible=!this.visible;
+      this.visible=!this.visible;
       this.cust_name=event.row[4];
     },
 
